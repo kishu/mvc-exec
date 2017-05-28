@@ -1,0 +1,34 @@
+<h1>{{title}}</h1>
+
+<div class="todo-control">
+{{#if todoEdit}}
+	<div data-id="{{todoEdit.id}}" class="wrap">
+		<input type="text" value="{{todoEdit.text}}" class="todo-input" />
+		<input type="button" value="수정" class="todo-btn todo-update" />
+		<input type="button" value="취소" class="todo-btn todo-edit-cancel" />
+	</div>
+{{else}}
+	<div class="wrap">
+		<input type="text" placeholder="해야 할 일" class="todo-input" />
+		<input type="button" value="입력" class="todo-btn todo-add" />
+	</div>
+{{/if}}
+</div>
+
+<ul class="todo-list">
+	{{#each todoList}}
+		<li data-id="{{id}}">
+		{{#if done}}
+			<span style="text-decoration:line-through"><a href="" class="todo-edit">{{text}}</a></span>
+			|
+			<a href="" class="todo-toggle">복구</a>
+		{{else}}
+			<span><a href="" class="todo-edit">{{text}}</a></span>
+			|
+			<a href="" class="todo-toggle">완료</a>
+		{{/if}}
+			|
+			<a href="" class="todo-delete">삭제</a>
+		</li>
+	{{/each}}
+</ul>
